@@ -2,75 +2,61 @@ package com.krishna.InMemory;
 
 
 import java.util.HashMap;
-import java.util.List;
+import java.util.LinkedList;
 import java.util.Map;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Service;
 
 import com.krishna.domain.PlaySite;
 import com.krishna.domain.Player;
 
+
+@Scope(value = "singleton")
+@Service
 public class InMemory {
 	
 	private static Map<String, PlaySite> playSiteMap;
 	
-	private static Map<String, Player> playerMap;
+	private static Map<String, Player> playerAuditMap;
+	
+	private static LinkedList<Player> playersQueue;
 	
 	public static Map<String, PlaySite> getPlaySiteMap() {
 		if (playSiteMap!=null) {
 			return playSiteMap;
 		} else {
-			return new HashMap<String, PlaySite>();
+			playSiteMap = new HashMap<String, PlaySite>();
+			return playSiteMap;
 		}
 	}
 	
-	public static Map<String, Player> getplayerMap() {
-		if (playerMap!=null) {
-			return playerMap;
+	public static Map<String, Player> getPlayerAudit() {
+		if (playerAuditMap!=null) {
+			return playerAuditMap;
 		} else {
-			return new HashMap<String, Player>();
+			playerAuditMap = new HashMap<String, Player>();
+			return playerAuditMap;
+		}
+	}
+	
+	public static LinkedList<Player> getPlayersQueue() {
+		if (playersQueue!=null) {
+			return playersQueue;
+		} else {
+			playersQueue = new LinkedList<Player>();
+			return playersQueue;
 		}
 	}
 	
 	private InMemory () { 
 		playSiteMap =  new HashMap<String, PlaySite>();
-		playerMap =  new HashMap<String, Player>();
+		playerAuditMap =  new HashMap<String, Player>();
+		playersQueue = new LinkedList<Player>();
 		
     }
 	
-	    
-	/*public void addPlaySite(String playSiteName, PlaySite playSite) {    	
-    	playSiteMap.put(playSiteName, playSite);
-    }
-	    
-	public List<PlaySite> getPlaySite(String playSiteName) {
-	    return playSiteMap.get(playSiteName);
-	}*/
 	
-	
-	/*public Map<String, List<PlaySite>> getInstance() {
-		if (playSiteMap!=null) {
-			return playSiteMap;
-		} else {
-			return new HashMap<String, List<PlaySite>>();
-		}
-	}
-	
-	private InMemory () { 
-		//playSiteList = new ArrayList<PlaySite>();
-		playSiteMap =  new HashMap<String, List<PlaySite>>();
-		
-    }
-	
-    private Map<String, List<PlaySite>> playSiteMap;
-    //private static List<PlaySite> playSiteList;
-    
-    public void setPlaySite(String playSiteName, PlaySite playSite) {    	
-    	playSiteMap.get(playSiteName).add(playSite);
-    }
-    
-    public List<PlaySite> getPlaySite(String playSiteName) {
-        return playSiteMap.get(playSiteName);
-    }
-	*/
 	
 
 }

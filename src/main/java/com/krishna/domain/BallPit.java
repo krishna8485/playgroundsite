@@ -1,10 +1,22 @@
 package com.krishna.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+
+@Component
 public class BallPit implements PlaySite {
 
 	private int capacity;
 	
-	private int totalOccupied;
+	private List<Player> currentPlayers;
+	
+	private BallPit(int capacity) {
+		this.capacity=capacity;
+		currentPlayers=new ArrayList<Player>();
+	}
 
 	@Override
 	public int getCapacity() {
@@ -12,25 +24,28 @@ public class BallPit implements PlaySite {
 	}
 
 	@Override
-	public int getTotalOccupied() {
-		return this.totalOccupied;
+	public List<Player>  getCurrentPlayers() {
+		return this.currentPlayers;
 	}
-
-	@Override
-	public void setCapacity(int capacity) {
-		this.capacity = capacity;
-		
-	}
-
-	@Override
-	public void setTotalOccupied(int totalOccupied) {
-		this.totalOccupied = totalOccupied;
-		
+	
+	@Override 
+	public void addPlayer(Player player) {
+		this.currentPlayers.add(player);
 	}
 
 	@Override
 	public void update(PlaySite playSite) {		
 		this.capacity = this.capacity + playSite.getCapacity();
+		
+	}
+
+	@Override
+	public boolean isAvailale() {
+	   if ((this.capacity-this.currentPlayers.size())>0 ) {		   
+		   return true;
+	   } else {
+		   return false;
+	   }
 		
 	}
 

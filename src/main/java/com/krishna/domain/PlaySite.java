@@ -1,15 +1,16 @@
 package com.krishna.domain;
 
+import java.util.List;
+
 public interface PlaySite {
 	
-	
-	
 	public int getCapacity();
-	public int getTotalOccupied();
-	
-	public void setCapacity(int capacity);
-	public void setTotalOccupied(int totalOccupied);
 	
 	public void update (PlaySite playSite) ;
+	
+	public boolean isAvailale();
+	List<Player> getCurrentPlayers();
+
+	void addPlayer(Player player);
 
 }
