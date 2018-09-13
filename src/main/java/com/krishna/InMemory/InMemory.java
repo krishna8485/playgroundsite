@@ -1,8 +1,5 @@
 package com.krishna.InMemory;
 
-
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
