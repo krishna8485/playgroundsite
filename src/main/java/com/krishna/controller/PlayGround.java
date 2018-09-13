@@ -62,8 +62,9 @@ public class PlayGround {
 	 * 
 	 * @param playSite
 	 * @return
+	 * @throws NoPlaySiteException 
 	 */
-	public boolean checkAvailablity(String playSite) {
+	public boolean checkAvailablity(String playSite) throws NoPlaySiteException {
 		//TODO: Add Data Validation 
 		return playGroundBusiness.checkAvailablity(playSite);
 		
