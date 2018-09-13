@@ -69,7 +69,7 @@ public class InMemory {
 	private InMemory () { 
 		playSiteMap =  new ConcurrentHashMap<String, PlaySite>();
 		playerAuditMap =  new ConcurrentHashMap<String, Player>();
-		playersQueue = (LinkedList<Player>) Collections.synchronizedList(new LinkedList<Player>());
+		playersQueue = new LinkedList<Player>();
 		
     }
 	

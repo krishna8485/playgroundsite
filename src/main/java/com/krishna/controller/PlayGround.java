@@ -16,7 +16,7 @@ public class PlayGround {
 	@Autowired 
 	PlayGroundBusiness playGroundBusiness;
 	
-	private static Logger logger = LoggerFactory.getLogger(PlayGround.class);	
+	//private static Logger logger = LoggerFactory.getLogger(PlayGround.class);	
 	
 	public void addPlaySites(PlaySite ... playSites) {
 		//TODO: Add Data Validation 

@@ -27,5 +27,4 @@ repositories {
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-	compile 'org.apache.logging.log4j:log4j-slf4j-impl:2.11.1'
 }

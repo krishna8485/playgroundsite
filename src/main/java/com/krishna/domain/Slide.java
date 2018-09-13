@@ -10,7 +10,7 @@ private int capacity;
 
 private List<Player> currentPlayers;
 
-private Slide(int capacity) {
+public Slide(int capacity) {
 	this.capacity=capacity;
 	currentPlayers=new ArrayList<Player>();
 }

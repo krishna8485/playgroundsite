@@ -3,10 +3,9 @@ package com.krishna.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Component;
 
 
-@Component
+
 public class BallPit implements PlaySite {
 
 	private int capacity;
