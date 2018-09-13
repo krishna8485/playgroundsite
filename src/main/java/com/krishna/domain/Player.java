@@ -1,10 +1,28 @@
 package com.krishna.domain;
 
+import java.util.Date;
+import java.util.List;
+
 public class Player {
 	private String name;
 	private String age;
 	private String ticketType;
 	private String playSite;
+	private Date inTime;
+	private Date outTime;
+	public Date getInTime() {
+		return inTime;
+	}
+	public void setInTime(Date inTime) {
+		this.inTime = inTime;
+	}
+	public Date getOutTime() {
+		return outTime;
+	}
+	public void setOutTime(Date outTime) {
+		this.outTime = outTime;
+	}
+	private List<String> playedSites;
 	
 	public String getPlaySite() {
 		return playSite;
@@ -29,6 +47,14 @@ public class Player {
 	}
 	public void setTicketType(String ticketType) {
 		this.ticketType = ticketType;
+	}
+	
+	
+	public List<String> getPlayedSites() {
+		return playedSites;
+	}
+	public void setPlayedSites(List<String> playedSites) {
+		this.playedSites = playedSites;
 	}
 	@Override
 	public int hashCode() {

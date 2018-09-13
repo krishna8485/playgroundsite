@@ -1,4 +1,4 @@
-package com.krishna.controller;
+package com.krishna.exception;
 
 public class NoPlaySiteException extends Exception {
 

@@ -1,37 +1,48 @@
 package com.krishna.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Carousel implements PlaySite {
 
 private int capacity;
+
+private List<Player> currentPlayers;
+
+private Carousel(int capacity) {
+	this.capacity=capacity;
+	currentPlayers=new ArrayList<Player>();
+}
+
+@Override
+public int getCapacity() {
+	return this.capacity;
+}
+
+@Override
+public List<Player>  getCurrentPlayers() {
+	return this.currentPlayers;
+}
+
+@Override 
+public void addPlayer(Player player) {
+	this.currentPlayers.add(player);
+}
+
+@Override
+public void update(PlaySite playSite) {		
+	this.capacity = this.capacity + playSite.getCapacity();
 	
-	private int totalOccupied;
+}
 
-	@Override
-	public int getCapacity() {
-		return this.capacity;
-	}
-
-	@Override
-	public int getTotalOccupied() {
-		return this.totalOccupied;
-	}
-
-	@Override
-	public void setCapacity(int capacity) {
-		this.capacity = capacity;
-		
-	}
-
-	@Override
-	public void setTotalOccupied(int totalOccupied) {
-		this.totalOccupied = totalOccupied;
-		
-	}
-
-	@Override
-	public void update(PlaySite playSite) {
-		// TODO Auto-generated method stub
-		
-	}
+@Override
+public boolean isAvailale() {
+   if ((this.capacity-this.currentPlayers.size())>0 ) {		   
+	   return true;
+   } else {
+	   return false;
+   }
+	
+}
 
 }
