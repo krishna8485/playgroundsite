@@ -1,6 +1,6 @@
 package com.krishna.InMemory;
-
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -15,17 +15,17 @@ import com.krishna.domain.Player;
 @Service
 public class InMemory {
 	
-	private static ConcurrentHashMap<String, PlaySite> playSiteMap;
+	private ConcurrentHashMap<String, PlaySite> playSiteMap;
 	
-	private static ConcurrentHashMap<String, Player> playerAuditMap;
+	private ConcurrentHashMap<String, List<String>> reportingMap;
 	
-	private static LinkedList<Player> playersQueue;
+	private  LinkedList<Player> playersQueue;
 	
 	/**
 	 * 
 	 * @return
 	 */
-	public static Map<String, PlaySite> getPlaySiteMap() {
+	public Map<String, PlaySite> getPlaySiteMap() {
 		if (playSiteMap!=null) {
 			return playSiteMap;
 		} else {
@@ -38,12 +38,12 @@ public class InMemory {
 	 * 
 	 * @return
 	 */
-	public static Map<String, Player> getPlayerAudit() {
-		if (playerAuditMap!=null) {
-			return playerAuditMap;
+	public Map<String, List<String>>getReportMap() {
+		if (reportingMap!=null) {
+			return reportingMap;
 		} else {
-			playerAuditMap = new ConcurrentHashMap<String, Player>();
-			return playerAuditMap;
+			reportingMap = new ConcurrentHashMap<String, List<String>>();
+			return reportingMap;
 		}
 	}
 	
@@ -51,7 +51,7 @@ public class InMemory {
 	 * 
 	 * @return
 	 */
-	public static LinkedList<Player> getPlayersQueue() {
+	public  LinkedList<Player> getPlayersQueue() {
 		if (playersQueue!=null) {
 			return playersQueue;
 		} else {
@@ -63,9 +63,11 @@ public class InMemory {
 	/**
 	 * 
 	 */
-	private InMemory () { 
-		playSiteMap =  new ConcurrentHashMap<String, PlaySite>();
-		playerAuditMap =  new ConcurrentHashMap<String, Player>();
+	public InMemory () { 
+		playSiteMap =  new ConcurrentHashMap<String, PlaySite>();/*
+		 List<String> playSites = 
+		         Collections.synchronizedList(new ArrayList());*/
+		reportingMap =  new ConcurrentHashMap<String,  List<String>>();
 		playersQueue = new LinkedList<Player>();
 		
     }
@@ -75,7 +77,7 @@ public class InMemory {
 	 * @param playsiteName
 	 * @param playSite
 	 */
-	public void updateInMemory(String playsiteName,  PlaySite playSite) {
+	public  void updateInMemory(String playsiteName,  PlaySite playSite) {
 		if (playSiteMap.get(playsiteName)==null) {
 			playSiteMap.put(playsiteName, playSite);
 			

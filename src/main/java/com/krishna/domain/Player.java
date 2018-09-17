@@ -1,15 +1,23 @@
 package com.krishna.domain;
 
 import java.util.Date;
-import java.util.List;
 
 public class Player {
 	private String name;
 	private String age;
+	private String ticketNumber;
 	private String ticketType;
 	private String playSite;
 	private Date inTime;
 	private Date outTime;
+	
+
+	public String getTicketNumber() {
+		return ticketNumber;
+	}
+	public void setTicketNumber(String ticketNumber) {
+		this.ticketNumber = ticketNumber;
+	}
 	public Date getInTime() {
 		return inTime;
 	}
@@ -22,7 +30,7 @@ public class Player {
 	public void setOutTime(Date outTime) {
 		this.outTime = outTime;
 	}
-	private List<String> playedSites;
+	/*private List<String> playedSites;*/
 	
 	public String getPlaySite() {
 		return playSite;
@@ -49,13 +57,13 @@ public class Player {
 		this.ticketType = ticketType;
 	}
 	
-	
+	/*
 	public List<String> getPlayedSites() {
 		return playedSites;
 	}
 	public void setPlayedSites(List<String> playedSites) {
 		this.playedSites = playedSites;
-	}
+	}*/
 	@Override
 	public int hashCode() {
 		final int prime = 31;
